@@ -1,0 +1,44 @@
+
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Identity
+@using OneMits.Data.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var userId = UserManager.GetUserId(User);
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                <ul>
+                    <!-- inser more links here -->
+
+                    <li>
+                        <a class="header-name_nav" asp-controller="Profile" asp-action="Details" asp-route-id="@userId">
+                            @User.Identity.Name
+                        </a>
+                    </li>
+                    <li>
+                        <button type="submit" class="btn btn-link  header-log_nav" >
+                            <i class="material-icons">power_settings_new</i></button>
+                    </li>
+                </ul>
+            </form>
+        }
+        else
+        {
+
+          
+            <ul>
+                <!-- inser more links here -->
+                <li><a style="text-decoration: none;" class="header-search_nav" asp-area="Identity" asp-page="/Account/Login">
+                    <i class="material-icons">sentiment_very_dissatisfied</i> SignIn</a>
+                </li>
+                <li><a style="text-decoration: none;" class="header-search_nav" asp-area="Identity" asp-page="/Account/Register">
+                    <i class="material-icons">mood</i> SignUp</a>
+                </li>
+
+            </ul>
+
+        }
+    </ul>

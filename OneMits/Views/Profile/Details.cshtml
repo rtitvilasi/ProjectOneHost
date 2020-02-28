@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model OneMits.Models.ApplicationUser.ProfileModel
+@inject UserManager<OneMits.Data.Models.ApplicationUser> profileManager
+
+<div class="w-container  city">
+    <div class="set-pro">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="image-cropper" id="userProfileImage" style="background-image:url(@Model.ProfileImageUrl)">
+                </div>
+                @if (User.Identity.Name == Model.UserName)
+                {
+                    <form method="post" enctype="multipart/form-data" asp-controller="Profile" asp-action="UploadProfileImage">
+                        <div id="upload">
+                            <label class="btn btn-default btn-file">
+                                Browse <input type="file" name="file" style="display:none" />
+                            </label>
+                        </div>
+                        <button type="submit" id="btn-profile" class="btn btn-default">
+                            Submit
+                        </button>
+                    </form>
+                }
+            </div>
+            <div class="col-md-3">
+                <p class="pro-name">@Model.UserName</p>
+                @if (@Model.IsAdmin)
+
+                {
+                    <span class="isAdmin">Admin</span>
+                }
+                <p class="pro-inf">Information Technology</p>
+                <p class="pro-inf">Current Rating : &nbsp @Model.UserRating</p>
+                <p class="pro-inf">Email : &nbsp @Model.Email</p>
+                <p class="pro-inf">Member Since : &nbsp @Model.MemberSince</p>
+                <a style= "color:#484141"class="cd-signup" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                    <i class="fa fa-cog " style="font-size:25px;"></i>
+                </a><br>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+
+
+

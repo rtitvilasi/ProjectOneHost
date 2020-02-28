@@ -1,0 +1,266 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    height: 100%;
+    color: #333333;
+    background: #ffffff;
+}
+
+.container_nav {
+    max-width: 80rem;
+    width: 80%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header_nav {
+    position: fixed;
+    width: 100%;
+    color: #ffffff;
+    background-color: #512da8;
+}
+
+    .header_nav .container_nav {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        flex-basis: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.header-icon_nav {
+    display: none;
+}
+
+.header-search_nav {
+    color: #ffffff;
+}
+
+.header-logo_nav {
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: inherit;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
+.header_nav .menu-list_nav {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-basis: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_nav .menu-item_nav a {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: inherit;
+    padding: 0 1rem;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+.header_nav .menu-item_nav i {
+    display: none;
+}
+
+.main-wrapper_nav {
+    padding: 7rem 0 2rem 0;
+}
+
+@media only screen and (max-width: 700px) {
+    .container_nav {
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .section-container_nav {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .section-wrapper_nav {
+        height: 100%;
+        transition-duration: 0.3s;
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+
+    .header_nav {
+        position: static;
+    }
+
+    .header-icon_nav {
+        display: block;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    .header_nav .menu_nav {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 20rem;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-transform: translateX(-20rem);
+        transform: translateX(-20rem);
+    }
+
+    .header_nav .menu-list_nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .header_nav .menu-item_nav {
+        width: 100%;
+        padding: 1rem;
+    }
+
+        .header_nav .menu-item_nav:hover {
+            background: #e6e6e6;
+        }
+
+        .header_nav .menu-item_nav a {
+            color: #333333;
+        }
+
+        .header_nav .menu-item_nav i {
+            position: relative;
+            display: inline-block;
+            top: 0.3rem;
+            margin-right: 1rem;
+            color: gray;
+        }
+
+    .menu-text_nav i {
+        position: relative;
+        top: 0.3rem;
+        color: gray;
+    }
+
+    .main_nav .main-wrapper_nav {
+        position: absolute;
+        top: 5rem;
+        bottom: 0;
+        overflow-y: scroll;
+        padding: 2rem 0 2rem 0;
+        z-index: -999;
+    }
+
+    .with-sidebar_nav .section-wrapper_nav {
+        -webkit-transform: translateX(20rem);
+        transform: translateX(20rem);
+    }
+
+    .with-sidebar_nav .overlay_nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    height: 100%;
+    color: #333333;
+    background: #ffffff;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    height: 100%;
+    color: #333333;
+    background: #ffffff;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
