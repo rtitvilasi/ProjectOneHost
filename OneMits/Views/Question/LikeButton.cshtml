@@ -1,0 +1,17 @@
+﻿
+@*<button onclick="@ToggleLike"
+        class="contact100-form-btn btn @(liked == true ? "btn-primary" : "btn-secondary" )">
+    <i class="fas fa-thumbs-up fa-lg" style="font-size:25px;" aria-hidden="true"></i>
+</button>
+<span id="likecount">@Model.LikeCount </span>
+
+@functions {
+    [Parameter] EventCallback<bool> OnLikeToggled { get; set; }
+    bool liked = false;
+
+    async Task ToggleLike()
+    {
+        liked = !liked;
+        await OnLikeToggled.InvokeAsync(liked);
+    }
+}*@

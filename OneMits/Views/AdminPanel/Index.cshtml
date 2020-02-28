@@ -1,0 +1,47 @@
+﻿@model OneMits.Models.AdminPanel.PanelIndexModel
+    <div>
+        <span class="contact100-Admin-title">
+            Admin Panel
+        </span>
+
+        <div id="tab2" class="w-container  city">
+            <div class="set-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="input-fr">Number of Forums : <span style="color: #e36664">@Model.NumberForums</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="input-fr">Number Of Questions : <span style="color: #e36664">@Model.NumberQuestions</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="input-fr">Number Of Replies : <span style="color: #e36664">@Model.NumberReplies</span></p>
+
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="input-fr"> Totle Visitor : <span style="color: #e36664">@Model.NumberUser</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="input-fr">Number of Member : <span style="color: #e36664">@Model.NumberMember</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 50px 0px 0px 136px;">
+            <div class="input-ur">
+                Search Users :
+                <form asp-controller="Search" asp-action="UserList" method="post">
+                    <input style="opacity:0.5" name="SearchQuery" type="text" placeholder="Enrollment No." required />
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>

@@ -1,0 +1,119 @@
+﻿@model  OneMits.Models.Category.CategoryTopicModel
+
+
+<div id="tab1" class="w-container  city">
+    <div class="set-container-top" style="background-color: #D6E2F8; ">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="container-forum">
+                    <form class="contact100-form validate-form">
+                        <span class="contact100-forum-title" style="font-size: 30px;">
+                           
+                            @Model.Category.CategoryTitle
+                        </span>
+
+                        <span class="label-input100">Number Of Post : @Model.Category.QuestionCount</span>
+                        <p class="input-fr">@Model.Category.CategoryDescription</p>
+                    </form>
+                </div>
+                <div id="dropDownSelect1"></div>
+            </div>
+            <div class="col-md-3">
+
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                    <button class="button-add button-mar">
+                        <a asp-controller="Question" asp-action="Create" asp-route-id="@Model.Category.CategoryId">
+                            <span style="color: white;">Ask Question</span>
+                        </a>
+                    </button>
+                }
+            <div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="droum-style button-del" asp-controller="Category" asp-action="Delete" asp-route-id="@Model.Category.CategoryId">
+                        <i class="fa fa-trash" style="font-size:20px;"></i>
+                    </a>
+                }
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Questions.Any())
+{
+    @foreach (var question in Model.Questions)
+    {
+        <div id="tab1" class="w-container  city">
+            <div class="set-container">
+                <div>
+                    <p class="question">
+                        <a style="text-decoration: none;color:#484040"
+                           asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                            @question.QuestionTitle
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <p class="by-part font-text">
+                        By -
+                        <a style="text-decoration: none;color:#8e5227"
+                           class="take-part" asp-controller="Profile" asp-action="Detail" asp-route-id="@question.AuthorId">
+                            @question.AuthorName
+                        </a>
+                    </p>
+                </div>
+                <div class="margin"> </div>
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="like-com">
+                            @*<a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>*@
+                            <a class="margin-rp like-style like-style ">
+                                <i class="fa fa-eye" style="font-size:20px;"></i>&nbsp
+                                @question.NumberView
+                            </a>
+                            <a class="">
+                                <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
+                                @if (question.AnswerCount == 0)
+
+                                {
+                                    <span>No Replies</span>
+                                }
+
+                                else
+                                {
+                                    <span>@question.AnswerCount Replies</span>
+                                }
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mt-time">
+                        <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @*<button class="btn-re" style="margin-left: 600px">More Post</button>*@
+}
+else
+{
+    <div class="noPosts">
+        <h3>
+            No posts found. Why not
+            <a asp-controller="Question" asp-action="Create" asp-route-id="@Model.Category.CategoryId">
+                <span>Ask</span>
+            </a>
+            Something?
+        </h3>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        function clearThis(target) {
+            target.value = "";
+        }</script>
+}
