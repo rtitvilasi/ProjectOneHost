@@ -21,7 +21,6 @@ namespace OneMits
             WebHost.CreateDefaultBuilder(args)
             .CaptureStartupErrors(true)
             .UseSetting("DetailedErrors", "true")
-            .UseWebRoot("h:\\root\\home\\rtitvilasi-001\\www\\hostingtest23\\wwwroot")
             .ConfigureLogging((hostingContext, builder) =>
             {
                 builder.AddFile("Logs/myapp-{Date}.txt");
