@@ -26,8 +26,8 @@ namespace OneMits.InterfaceImplementation
         public async Task AddView(int id)
         {
             var question = GetById(id);
-            question.NumberViews += 1; 
-            await _context.SaveChangesAsync();
+            question.NumberViews += 1;
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task AddAnswer(Answer answer)
